@@ -25,6 +25,11 @@ public class PopupScreen extends BaseScreenHandler {
         super(stage, ViewsConfig.POPUP_PATH);
     }
 
+    /**
+     * Minh Duc
+     * Control coupling 
+     * Sử dụng tham số truyền vào undecorated làm tham số điều khiển
+     */
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());
         if (undecorated) popup.stage.initStyle(StageStyle.UNDECORATED);
