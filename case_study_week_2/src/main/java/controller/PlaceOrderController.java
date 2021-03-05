@@ -78,7 +78,7 @@ public class PlaceOrderController extends BaseController {
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }
-    
+    // Nguyen Manh Duc. stamp coupling: thừa province và instructions
     /**
    * The method validates the info
    * @param info
