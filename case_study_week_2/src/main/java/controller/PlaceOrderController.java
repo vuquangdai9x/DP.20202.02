@@ -28,6 +28,8 @@ public class PlaceOrderController extends BaseController {
      */
     private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
 
+
+    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.cartInstance thuộc lớp SessionInformation
     /**
      * This method checks the availability of product when user click PlaceOrder button
      * @throws SQLException
@@ -36,6 +38,8 @@ public class PlaceOrderController extends BaseController {
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
 
+
+    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.cartInstance thuộc lớp SessionInformation
     /**
      * This method creates the new Order based on the Cart
      * @return Order
