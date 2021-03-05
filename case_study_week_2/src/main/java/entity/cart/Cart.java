@@ -60,6 +60,11 @@ public class Cart {
         if (!allAvailable) throw new MediaNotAvailableException("Some media not available");
     }
 
+    /**
+     * Minh Duc
+     * Stamp coupling
+     * Truyền cả đối tượng media nhưng chỉ dùng media.getId()
+     */
     public CartItem checkMediaInCart(Media media){
         for (CartItem cartItem : lstCartItem) {
             if (cartItem.getMedia().getId() == media.getId()) return cartItem;
