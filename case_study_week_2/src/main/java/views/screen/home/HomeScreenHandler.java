@@ -220,6 +220,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     }
 
  // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.cartInstance from other module
+    /**
+     * Minh Duc
+     * Control coupling 
+     * Sử dụng tham số truyền vào mediaHandler làm tham số điều khiển
+     */
     private void update(MediaHandler mediaHandler) {
         int requestQuantity = mediaHandler.getRequestQuantity();
         Media media = mediaHandler.getMedia();
