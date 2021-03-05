@@ -93,9 +93,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     }
 
     /**
-     * Minh Duc
+     * Le Minh Duc
      * Stamp coupling
-     * Truyá»�n cáº£ Ä‘á»‘i tÆ°á»£ng dto nhÆ°ng khĂ´ng dĂ¹ng Ä‘áº¿n
+     * Truyen ca doi tuong dto nhưng khong su dung
      */
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
@@ -221,9 +221,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
  // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.cartInstance from other module
     /**
-     * Minh Duc
+     * Le Minh Duc
      * Control coupling 
-     * Sử dụng tham số truyền vào mediaHandler làm tham số điều khiển
+     * Su dung tham so truyen vao mediaHandler lam tham so dieu khien
      */
     private void update(MediaHandler mediaHandler) {
         int requestQuantity = mediaHandler.getRequestQuantity();

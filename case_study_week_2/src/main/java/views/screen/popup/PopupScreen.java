@@ -26,9 +26,9 @@ public class PopupScreen extends BaseScreenHandler {
     }
 
     /**
-     * Minh Duc
+     * Le Minh Duc
      * Control coupling 
-     * Sử dụng tham số truyền vào undecorated làm tham số điều khiển
+     * Su dung tham so truyen vao undecorated làm tham số điều khiển
      */
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());

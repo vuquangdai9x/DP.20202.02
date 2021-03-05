@@ -61,9 +61,9 @@ public class Cart {
     }
 
     /**
-     * Minh Duc
+     * Le Minh Duc
      * Stamp coupling
-     * Truyền cả đối tượng media nhưng chỉ dùng media.getId()
+     * Truyen ca doi tuong media nhung chi dung media.getId()
      */
     public CartItem checkMediaInCart(Media media){
         for (CartItem cartItem : lstCartItem) {
