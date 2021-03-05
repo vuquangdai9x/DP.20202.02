@@ -95,7 +95,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     /**
      * Minh Duc
      * Stamp coupling
-     * Truyền cả đối tượng dto nhưng không dùng đến
+     * Truyá»�n cáº£ Ä‘á»‘i tÆ°á»£ng dto nhÆ°ng khĂ´ng dĂ¹ng Ä‘áº¿n
      */
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
@@ -139,6 +139,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         addMenuItem(2, "CD", splitMenuBtnSearch);
     }
 
+    // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.cartInstance from other module
     @Override
     public void show() {
         if (authenticationController.isAnonymousSession()) {
@@ -218,6 +219,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         if (observable instanceof MediaHandler) update((MediaHandler) observable);
     }
 
+ // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.cartInstance from other module
     private void update(MediaHandler mediaHandler) {
         int requestQuantity = mediaHandler.getRequestQuantity();
         Media media = mediaHandler.getMedia();
