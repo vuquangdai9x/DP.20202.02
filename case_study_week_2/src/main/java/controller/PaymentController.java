@@ -13,6 +13,11 @@ import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
 
+/**
+ * Le Minh Duc
+ * Coincidental Cohesion
+ * Cac method trong class khong co su lien quan voi nhau
+ */
 
 /**
  * This {@code PaymentController} class control the flow of the payment process
