@@ -19,6 +19,7 @@ public class App extends Application {
 	@FXML
 	ImageView logo;
 
+	// Vu Quang Dai - Coicidental Cohesion - init, fade and load content process are not relate to each other
 	@Override
 	public void start(Stage primaryStage) {
 		try {
