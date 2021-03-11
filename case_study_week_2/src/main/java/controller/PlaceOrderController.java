@@ -58,6 +58,8 @@ public class PlaceOrderController extends BaseController {
         return new Invoice(order);
     }
 
+
+    // Nguyen Dinh Duc. Concidental cohesion. Tinh chi phi chua duoc su dung o class nay
     /**
      * This method takes responsibility for processing the shipping info from user
      * @param info
