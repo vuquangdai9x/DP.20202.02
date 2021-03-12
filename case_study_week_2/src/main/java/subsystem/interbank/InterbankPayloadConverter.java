@@ -108,6 +108,7 @@ public class InterbankPayloadConverter {
         return response;
     }
 
+    //Dinh Duc. Coincidental cohesion. Phuong thuc nay khong lien quan den class
     /**
      * Return a {@link String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
      *

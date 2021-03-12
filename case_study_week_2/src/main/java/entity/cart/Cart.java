@@ -49,7 +49,7 @@ public class Cart {
         return total;
     }
 
-    public void checkAvailabilityOfProduct() throws SQLException{
+    public void checkAvailabilityOfProduct() throws SQLException{ //Dinh Duc. Communicational cohesion. Chi dung tham so cua class, khong co y nghia voi class
         boolean allAvailable = true;
         for (Object object : lstCartItem) {
             CartItem cartItem = (CartItem) object;
@@ -65,7 +65,7 @@ public class Cart {
      * Stamp coupling
      * Truyen ca doi tuong media nhung chi dung media.getId()
      */
-    public CartItem checkMediaInCart(Media media){
+    public CartItem checkMediaInCart(Media media){ //Dinh Duc. Communicational cohesion. Chi dung tham so cua class, khong co y nghia voi class
         for (CartItem cartItem : lstCartItem) {
             if (cartItem.getMedia().getId() == media.getId()) return cartItem;
         }

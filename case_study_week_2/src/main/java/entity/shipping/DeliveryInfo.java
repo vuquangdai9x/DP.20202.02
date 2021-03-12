@@ -21,6 +21,7 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
+    //Dinh Duc. Communicational cohesion. Phuong thuc nay khong lien quan den class, chi su dung tham so distanceCalculator cua class
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);
