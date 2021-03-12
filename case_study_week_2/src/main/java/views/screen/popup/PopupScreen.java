@@ -28,7 +28,7 @@ public class PopupScreen extends BaseScreenHandler {
     /**
      * Minh Duc
      * Control coupling 
-     * Sử dụng tham số truyền vào undecorated làm tham số điều khiển
+     * Sá»­ dá»¥ng tham sá»‘ truyá»�n vÃ o undecorated lÃ m tham sá»‘ Ä‘iá»�u khiá»ƒn
      */
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());
@@ -37,6 +37,7 @@ public class PopupScreen extends BaseScreenHandler {
         popup.setImage(imagePath);
         return popup;
     }
+    // temporal cohesion: chua ca method pop up + xu li exception
 
     public static void success(String message) throws IOException{
         popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickgreen.png", true)
