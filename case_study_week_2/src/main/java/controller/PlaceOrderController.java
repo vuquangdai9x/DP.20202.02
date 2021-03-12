@@ -18,6 +18,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Le Minh Duc
+ * Procedural  Cohesion
+ * Cac method createOrder, createOrder, placeOrder trong class duoc nhom lai voi nhau vi chung duoc thuc hien theo trinh tu
+ */
+
+/**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
