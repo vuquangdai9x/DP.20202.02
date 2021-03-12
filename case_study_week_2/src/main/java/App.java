@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import subsystem.InterbankSubsystem;
 import views.screen.BaseScreenHandler;
 import views.screen.ViewsConfig;
 import views.screen.home.*;
@@ -19,7 +20,11 @@ public class App extends Application {
 	@FXML
 	ImageView logo;
 
-	// Vu Quang Dai - Coicidental Cohesion - init, fade and load content process are not relate to each other
+	/**
+	 * <p>Vu Quang Dai</p>
+	 * <p>Coicidental Cohesion</p>
+	 * <p>Init, fade and load content process are not relate to each other</p>
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {

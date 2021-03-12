@@ -59,6 +59,11 @@ public class AuthenticationController extends BaseController {
      * @param message - plain text as {@link String String}.
      * @return cipher text as {@link String String}.
      */
+    /**
+	 * <p>Vu Quang Dai</p>
+	 * <p>Coicidental Cohesion</p>
+	 * <p>md5 encryption is not functional relate to Authentication. This method should be place in an utility class</p>
+	 */
     private String md5(String message) {
         String digest = null;
         try {
