@@ -5,6 +5,12 @@ import java.sql.SQLException;
 import entity.cart.Cart;
 
 /**
+ * Le Minh Duc
+ * Procedural  Cohesion
+ * Cac method checkAvailabilityOfProduct, getCartSubtotal trong class duoc nhom lai voi nhau vi chung su dung chung du lieu la SessionInformation
+ */
+
+/**
  * This class controls the flow of events when users view the Cart
  * @author nguyenlm
  */
