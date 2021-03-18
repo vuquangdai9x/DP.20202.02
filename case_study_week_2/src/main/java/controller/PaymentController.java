@@ -49,6 +49,11 @@ public class PaymentController extends BaseController {
 	 * @throws InvalidCardException - if the string does not represent a valid date
 	 *                              in the expected format
 	 */
+	/**
+	 * <p>Vu Quang Dai</p>
+	 * <p>Coicidental Cohesion</p>
+	 * <p>String date validation is not functional relate to payment. This method should be place in an utility class</p>
+	 */
 	private String getExpirationDate(String date) throws InvalidCardException {
 		String[] strs = date.split("/");
 		if (strs.length != 2) {
