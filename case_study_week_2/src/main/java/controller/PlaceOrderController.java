@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
  /**
  * Le Minh Duc
- * Single Responsibility Principle
+ * SOLID: Vi pham nguyen ly Single Responsibility Principle
  * Class thuc hien nhieu hon mot nhiem vu
  */
 
