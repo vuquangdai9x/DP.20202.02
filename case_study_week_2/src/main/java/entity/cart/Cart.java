@@ -7,7 +7,7 @@ import java.util.List;
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
-public class Cart {
+public class Cart { // Dinh Duc. Vi pham SRP
     
     private List<CartItem> lstCartItem;
 
