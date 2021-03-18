@@ -19,6 +19,12 @@ import subsystem.InterbankSubsystem;
  * Cac method trong class khong co su lien quan voi nhau
  */
 
+ /**
+ * Le Minh Duc
+ * Single Responsibility Principle
+ * Class thuc hien nhieu hon mot nhiem vu
+ */
+
 /**
  * This {@code PaymentController} class control the flow of the payment process
  * in our AIMS Software.

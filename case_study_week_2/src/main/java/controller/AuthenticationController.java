@@ -13,7 +13,11 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-
+/**
+ * Le Minh Duc
+ * Single Responsibility Principle
+ * Class thuc hien nhieu hon mot nhiem vu
+ */
 
 /**
  * @author

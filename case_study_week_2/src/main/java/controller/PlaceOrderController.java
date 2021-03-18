@@ -23,6 +23,12 @@ import java.util.regex.Pattern;
  * Cac method createOrder, createOrder, placeOrder trong class duoc nhom lai voi nhau vi chung duoc thuc hien theo trinh tu
  */
 
+ /**
+ * Le Minh Duc
+ * Single Responsibility Principle
+ * Class thuc hien nhieu hon mot nhiem vu
+ */
+
 /**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
