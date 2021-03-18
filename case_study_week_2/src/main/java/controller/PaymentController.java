@@ -21,8 +21,8 @@ import subsystem.InterbankSubsystem;
 
  /**
  * Le Minh Duc
- * SOLID: Vi pham nguyen ly Single Responsibility Principle
- * Class thuc hien nhieu hon mot nhiem vu
+ * SOLID: Vi phạm nguyên lý OCR
+ * PaymentController mới chỉ có phương thức thanh toán với payOrder, về sau có nhiều phương thức sẽ phải modify lại mã nguồn PaymentController 
  */
 
 /**
