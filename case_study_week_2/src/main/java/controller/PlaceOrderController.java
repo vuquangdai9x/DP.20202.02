@@ -23,9 +23,15 @@ import java.util.regex.Pattern;
  * Cac method createOrder, createOrder, placeOrder trong class duoc nhom lai voi nhau vi chung duoc thuc hien theo trinh tu
  */
 
- /**
+/**
  * Le Minh Duc
  * SOLID: Vi pham nguyen ly Single Responsibility Principle
+ * PlaceOrderController extends BaseController nhung 2 method của BaseController khong lien quan đến PlaceOrderController
+ */
+
+/**
+ * Le Minh Duc
+ * SOLID: Vi pham nguyen ly Liskov Substitution Principle
  * Class thuc hien nhieu hon mot nhiem vu
  */
 
