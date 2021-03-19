@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @author
  */
-public class InterbankPayloadConverter {
+public class InterbankPayloadConverter { //Dinh Duc. OCP. Them phuong thuc thanh toan moi se phai sua lai class
 
     /**
      * Convert from native entity into interbank required format
