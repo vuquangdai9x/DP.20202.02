@@ -13,7 +13,11 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-
+/**
+ * Le Minh Duc
+ * SOLID: Vi pham nguyen ly Single Responsibility Principle
+ * Class thuc hien nhieu hon mot nhiem vu
+ */
 
 /**
  * @author
@@ -36,6 +40,11 @@ public class AuthenticationController extends BaseController {
         } else return SessionInformation.mainUser.cloneInformation();
     }
 
+/**
+ * Le Minh Duc
+ * SOLID: Vi pham nguyen ly  Dependency Inversion Principle
+ * Vi class muc cao la AuthenticationController phu thuoc truc tiep vao class muc thap la UserDAO
+ */
     public void login(String email, String password) throws Exception {
         try {
             User user = new UserDAO().authenticate(email, md5(password));

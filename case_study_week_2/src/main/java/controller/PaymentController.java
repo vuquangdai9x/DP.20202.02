@@ -19,6 +19,12 @@ import subsystem.InterbankSubsystem;
  * Cac method trong class khong co su lien quan voi nhau
  */
 
+ /**
+ * Le Minh Duc
+ * SOLID: Vi phạm nguyên lý OCR
+ * PaymentController mới chỉ có phương thức thanh toán với payOrder, về sau có nhiều phương thức sẽ phải modify lại mã nguồn PaymentController 
+ */
+
 /**
  * This {@code PaymentController} class control the flow of the payment process
  * in our AIMS Software.
