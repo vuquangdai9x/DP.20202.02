@@ -7,7 +7,7 @@ import entity.cart.Cart;
 /**
  * Le Minh Duc
  * Procedural  Cohesion
- * Cac method checkAvailabilityOfProduct, getCartSubtotal trong class duoc nhom lai voi nhau vi chung su dung chung du lieu la SessionInformation
+ * Cac method checkAvailabilityOfProduct, getCartSubtotal trong class duoc nhom lai voi nhau vi chung su dung chung du lieu la SessionInformation.getInstance()
  */
 
 /**
@@ -21,7 +21,7 @@ public class ViewCartController extends BaseController{
      * @throws SQLException
      */
     public void checkAvailabilityOfProduct() throws SQLException{
-        SessionInformation.cartInstance.checkAvailabilityOfProduct();
+        SessionInformation.getInstance().cartInstance.checkAvailabilityOfProduct();
     }
 
     /**
@@ -29,7 +29,7 @@ public class ViewCartController extends BaseController{
      * @return subtotal
      */
     public int getCartSubtotal(){
-        int subtotal = SessionInformation.cartInstance.calSubtotal();
+        int subtotal = SessionInformation.getInstance().cartInstance.calSubtotal();
         return subtotal;
     }
 

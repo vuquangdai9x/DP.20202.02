@@ -24,10 +24,10 @@ public class Order {
         this.tax = 0;
     }
     
-    // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.cartInstance from other module
+    // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.getInstance().cartInstance from other module
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
-        for (Object object : SessionInformation.cartInstance.getListMedia()) {
+        for (Object object : SessionInformation.getInstance().cartInstance.getListMedia()) {
             CartItem cartItem = (CartItem) object;
             OrderItem orderItem = new OrderItem(cartItem.getMedia(),
                     cartItem.getQuantity(),

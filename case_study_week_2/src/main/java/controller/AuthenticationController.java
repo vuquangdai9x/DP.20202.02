@@ -30,26 +30,26 @@ public class AuthenticationController extends BaseController {
     }
 
     public User getMainUser() throws ExpiredSessionException {
-        if (SessionInformation.mainUser == null || SessionInformation.expiredTime == null || SessionInformation.expiredTime.isBefore(LocalDateTime.now())) {
+        if (SessionInformation.getInstance().mainUser == null || SessionInformation.getInstance().expiredTime == null || SessionInformation.getInstance().expiredTime.isBefore(LocalDateTime.now())) {
             logout();
             throw new ExpiredSessionException();
-        } else return SessionInformation.mainUser.cloneInformation();
+        } else return SessionInformation.getInstance().mainUser.cloneInformation();
     }
 
     public void login(String email, String password) throws Exception {
         try {
             User user = new UserDAO().authenticate(email, md5(password));
             if (Objects.isNull(user)) throw new FailLoginException();
-            SessionInformation.mainUser = user;
-            SessionInformation.expiredTime = LocalDateTime.now().plusHours(24);
+            SessionInformation.getInstance().mainUser = user;
+            SessionInformation.getInstance().expiredTime = LocalDateTime.now().plusHours(24);
         } catch (SQLException ex) {
             throw new FailLoginException();
         }
     }
 
     public void logout() {
-        SessionInformation.mainUser = null;
-        SessionInformation.expiredTime = null;
+        SessionInformation.getInstance().mainUser = null;
+        SessionInformation.getInstance().expiredTime = null;
     }
 
     /**

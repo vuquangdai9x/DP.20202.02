@@ -35,24 +35,24 @@ public class PlaceOrderController extends BaseController {
     private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
 
 
-    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.cartInstance thuộc lớp SessionInformation
+    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.getInstance().cartInstance thuộc lớp SessionInformation.getInstance()
     /**
      * This method checks the availability of product when user click PlaceOrder button
      * @throws SQLException
      */
     public void placeOrder() throws SQLException {
-        SessionInformation.cartInstance.checkAvailabilityOfProduct();
+        SessionInformation.getInstance().cartInstance.checkAvailabilityOfProduct();
     }
 
 
-    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.cartInstance thuộc lớp SessionInformation
+    //Nguyen Dinh Duc. Common Coupling. Truy cập đến SessionInformation.getInstance().cartInstance thuộc lớp SessionInformation.getInstance()
     /**
      * This method creates the new Order based on the Cart
      * @return Order
      * @throws SQLException
      */
     public Order createOrder() throws SQLException {
-        return new Order(SessionInformation.cartInstance);
+        return new Order(SessionInformation.getInstance().cartInstance);
     }
 
     /**
