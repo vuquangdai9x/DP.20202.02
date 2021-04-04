@@ -3,7 +3,7 @@ package entity.shipping;
 import entity.order.Order;
 import org.example.DistanceCalculator;
 
-public class DeliveryInfo {
+public class DeliveryInfo { //Dinh Duc. OCP. Neu can them du lieu thi phai sua lai class
 
     protected String name;
     protected String phone;

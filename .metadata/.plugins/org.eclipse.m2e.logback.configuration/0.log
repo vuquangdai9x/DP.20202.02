@@ -28,3 +28,23 @@
 2021-03-13 02:09:04,623 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
 2021-03-13 02:09:04,633 [Worker-34: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2021-03-13 02:09:04,644 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\src\test\resources
+2021-03-18 17:19:45,166 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-03-18 17:20:04,414 [Worker-5: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2021-03-18 17:20:11,446 [Worker-5: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: groupId:dp-case-study:1.0-SNAPSHOT @ E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\pom.xml.
+2021-03-18 17:20:36,356 [Worker-5: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /case_study_week_2/src/main/java
+2021-03-18 17:20:36,358 [Worker-5: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /case_study_week_2/src/main/resources
+2021-03-18 17:20:36,365 [Worker-5: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /case_study_week_2/src/test/java
+2021-03-18 17:20:39,743 [Worker-5: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 35 sec
+2021-03-18 17:20:39,944 [Worker-1: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-18 17:20:39,988 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-03-18 17:20:40,631 [Worker-1: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-18 17:20:40,644 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\src\test\resources
+2021-03-18 17:22:47,725 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-18 17:22:47,747 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-03-18 17:22:48,374 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-18 17:22:48,387 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\src\test\resources
+2021-03-19 19:22:32,197 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-03-19 19:29:07,358 [Worker-13: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-19 19:29:07,396 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-03-19 19:29:07,424 [Worker-13: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-03-19 19:29:07,432 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\src\test\resources

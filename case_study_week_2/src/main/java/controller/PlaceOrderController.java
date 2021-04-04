@@ -24,6 +24,18 @@ import java.util.regex.Pattern;
  */
 
 /**
+ * Le Minh Duc
+ * SOLID: Vi pham nguyen ly Single Responsibility Principle
+ * PlaceOrderController extends BaseController nhung 2 method của BaseController khong lien quan đến PlaceOrderController
+ */
+
+/**
+ * Le Minh Duc
+ * SOLID: Vi pham nguyen ly Liskov Substitution Principle
+ * Class thuc hien nhieu hon mot nhiem vu
+ */
+
+/**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
