@@ -73,7 +73,7 @@ public class PaymentController extends BaseController {
 		try {
 			month = Integer.parseInt(strs[0]);
 			year = Integer.parseInt(strs[1]);
-			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
+			if (validateDate(month, year)) {
 				throw new InvalidCardException();
 			}
 			expirationDate = strs[0] + strs[1];
@@ -83,6 +83,12 @@ public class PaymentController extends BaseController {
 		}
 
 		return expirationDate;
+	}
+	
+	private boolean validateDate(int month, int year) {
+		return month < 1 || month > 12 || 
+				month < Calendar.getInstance().get(Calendar.YEAR) % 100 || 
+				year > 100;
 	}
 
 	/**
