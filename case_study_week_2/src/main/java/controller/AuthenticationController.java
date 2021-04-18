@@ -34,12 +34,18 @@ public class AuthenticationController extends BaseController {
     }
 
     public User getMainUser() throws ExpiredSessionException {
-        if (SessionInformation.getInstance().mainUser == null || SessionInformation.getInstance().expiredTime == null || SessionInformation.getInstance().expiredTime.isBefore(LocalDateTime.now())) {
+        if (validateUser()) {
             logout();
             throw new ExpiredSessionException();
         } else return SessionInformation.getInstance().mainUser.cloneInformation();
     }
 
+    private boolean validateUser() {
+    	return SessionInformation.getInstance().mainUser == null || 
+    			SessionInformation.getInstance().expiredTime == null || 
+    			SessionInformation.getInstance().expiredTime.isBefore(LocalDateTime.now());
+    }
+    
 /**
  * Le Minh Duc
  * SOLID: Vi pham nguyen ly  Dependency Inversion Principle

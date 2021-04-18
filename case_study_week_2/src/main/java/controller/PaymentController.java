@@ -21,8 +21,8 @@ import subsystem.InterbankSubsystem;
 
  /**
  * Le Minh Duc
- * SOLID: Vi phạm nguyên lý OCR
- * PaymentController mới chỉ có phương thức thanh toán với payOrder, về sau có nhiều phương thức sẽ phải modify lại mã nguồn PaymentController 
+ * SOLID: Vi pháº¡m nguyÃªn lÃ½ OCR
+ * PaymentController má»›i chá»‰ cÃ³ phÆ°Æ¡ng thá»©c thanh toÃ¡n vá»›i payOrder, vá»� sau cÃ³ nhiá»�u phÆ°Æ¡ng thá»©c sáº½ pháº£i modify láº¡i mÃ£ nguá»“n PaymentController 
  */
 
 /**
@@ -37,7 +37,7 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
-	private CreditCard card;
+	private CreditCard creditCard;
 
 	/**
 	 * Represent the Interbank subsystem
@@ -102,14 +102,14 @@ public class PaymentController extends BaseController {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
-			this.card = new CreditCard(
+			this.creditCard = new CreditCard(
 					cardNumber,
 					cardHolderName,
 					getExpirationDate(expirationDate),
 					Integer.parseInt(securityCode));
 
 			this.interbank = new InterbankSubsystem();
-			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+			PaymentTransaction transaction = interbank.payOrder(creditCard, amount, contents);
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have successfully paid the order!");
