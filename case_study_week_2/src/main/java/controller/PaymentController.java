@@ -60,9 +60,13 @@ public class PaymentController extends BaseController {
 	 * <p>Coicidental Cohesion</p>
 	 * <p>String date validation is not functional relate to payment. This method should be place in an utility class</p>
 	 */
+	
 	private String getExpirationDate(String date) throws InvalidCardException {
-		String[] strs = date.split("/");
-		if (strs.length != 2) {
+		final int MONTH_INDEX = 0;
+		final int YEAR_INDEX = 1;
+		
+		String[] splittedDateStrings = date.split("/");
+		if (splittedDateStrings.length != 2) {
 			throw new InvalidCardException();
 		}
 
@@ -71,12 +75,12 @@ public class PaymentController extends BaseController {
 		int year = -1;
 
 		try {
-			month = Integer.parseInt(strs[0]);
-			year = Integer.parseInt(strs[1]);
+			month = Integer.parseInt(splittedDateStrings[MONTH_INDEX]);
+			year = Integer.parseInt(splittedDateStrings[YEAR_INDEX]);
 			if (validateDate(month, year)) {
 				throw new InvalidCardException();
 			}
-			expirationDate = strs[0] + strs[1];
+			expirationDate = splittedDateStrings[MONTH_INDEX] + splittedDateStrings[YEAR_INDEX];
 
 		} catch (Exception ex) {
 			throw new InvalidCardException();

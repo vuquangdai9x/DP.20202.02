@@ -156,13 +156,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public void setImage() {
         // fix image path caused by fxml
-        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
-        Image img1 = new Image(file1.toURI().toString());
-        aimsImage.setImage(img1);
+        File logoImageFile = new File(ViewsConfig.LOGO_IMAGE_PATH);
+        Image logoImage = new Image(logoImageFile.toURI().toString());
+        aimsImage.setImage(logoImage);
 
-        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
-        Image img2 = new Image(file2.toURI().toString());
-        cartImage.setImage(img2);
+        File cartImageFile = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
+        Image cartImg = new Image(cartImageFile.toURI().toString());
+        cartImage.setImage(cartImg);
     }
 
     public void addMediaHome(List items){

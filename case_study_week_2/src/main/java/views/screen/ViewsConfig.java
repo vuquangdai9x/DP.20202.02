@@ -14,6 +14,7 @@ public class ViewsConfig {
 
     // static resource
     public static final String IMAGE_PATH = "src/main/resources/assets/images";
+    public static final String LOGO_IMAGE_PATH = "src/main/resources/assets/images/Logo.png";
     public static final String INVOICE_SCREEN_PATH = "/views/fxml/invoice.fxml";
     public static final String INVOICE_MEDIA_SCREEN_PATH = "/views/fxml/media_invoice.fxml";
     public static final String PAYMENT_SCREEN_PATH = "/views/fxml/payment.fxml";
