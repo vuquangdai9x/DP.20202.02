@@ -12,6 +12,7 @@ import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
+import utils.Validate;
 
 /**
  * Le Minh Duc
@@ -60,36 +61,36 @@ public class PaymentController extends BaseController {
 	 * <p>Coicidental Cohesion</p>
 	 * <p>String date validation is not functional relate to payment. This method should be place in an utility class</p>
 	 */
-	private String getExpirationDate(String date) throws InvalidCardException {
-		String[] strs = date.split("/");
-		if (strs.length != 2) {
-			throw new InvalidCardException();
-		}
-
-		String expirationDate = null;
-		int month = -1;
-		int year = -1;
-
-		try {
-			month = Integer.parseInt(strs[0]);
-			year = Integer.parseInt(strs[1]);
-			if (validateDate(month, year)) {
-				throw new InvalidCardException();
-			}
-			expirationDate = strs[0] + strs[1];
-
-		} catch (Exception ex) {
-			throw new InvalidCardException();
-		}
-
-		return expirationDate;
-	}
-	
-	private boolean validateDate(int month, int year) {
-		return month < 1 || month > 12 || 
-				month < Calendar.getInstance().get(Calendar.YEAR) % 100 || 
-				year > 100;
-	}
+//	private String getExpirationDate(String date) throws InvalidCardException {
+//		String[] strs = date.split("/");
+//		if (strs.length != 2) {
+//			throw new InvalidCardException();
+//		}
+//
+//		String expirationDate = null;
+//		int month = -1;
+//		int year = -1;
+//
+//		try {
+//			month = Integer.parseInt(strs[0]);
+//			year = Integer.parseInt(strs[1]);
+//			if (validateDate(month, year)) {
+//				throw new InvalidCardException();
+//			}
+//			expirationDate = strs[0] + strs[1];
+//
+//		} catch (Exception ex) {
+//			throw new InvalidCardException();
+//		}
+//
+//		return expirationDate;
+//	}
+//	
+//	private boolean validateDate(int month, int year) {
+//		return month < 1 || month > 12 || 
+//				month < Calendar.getInstance().get(Calendar.YEAR) % 100 || 
+//				year > 100;
+//	}
 
 	/**
 	 * Pay order, and then return the result with a message.
@@ -107,11 +108,14 @@ public class PaymentController extends BaseController {
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
+		
+		Validate validate = new Validate();
+		
 		try {
 			this.creditCard = new CreditCard(
 					cardNumber,
 					cardHolderName,
-					getExpirationDate(expirationDate),
+					validate.getExpirationDate(expirationDate),
 					Integer.parseInt(securityCode));
 
 			this.interbank = new InterbankSubsystem();

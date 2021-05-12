@@ -5,6 +5,7 @@ import common.exception.FailLoginException;
 import dao.user.UserDAO;
 import entity.user.User;
 import utils.Utils;
+import utils.Hash;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -53,7 +54,9 @@ public class AuthenticationController extends BaseController {
  */
     public void login(String email, String password) throws Exception {
         try {
-            User user = new UserDAO().authenticate(email, md5(password));
+        	Hash hash = new Hash();
+        	
+            User user = new UserDAO().authenticate(email, hash.md5(password));
             if (Objects.isNull(user)) throw new FailLoginException();
             SessionInformation.getInstance().mainUser = user;
             SessionInformation.getInstance().expiredTime = LocalDateTime.now().plusHours(24);
@@ -79,22 +82,22 @@ public class AuthenticationController extends BaseController {
 	 * <p>Coicidental Cohesion</p>
 	 * <p>md5 encryption is not functional relate to Authentication. This method should be place in an utility class</p>
 	 */
-    private String md5(String message) {
-        String digest = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] hash = md.digest(message.getBytes(StandardCharsets.UTF_8));
-            // converting byte array to Hexadecimal String
-            StringBuilder sb = new StringBuilder(2 * hash.length);
-            for (byte b : hash) {
-                sb.append(String.format("%02x", b & 0xff));
-            }
-            digest = sb.toString();
-        } catch (NoSuchAlgorithmException ex) {
-            Utils.getLogger(Utils.class.getName());
-            digest = "";
-        }
-        return digest;
-    }
+//    private String md5(String message) {
+//        String digest = null;
+//        try {
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            byte[] hash = md.digest(message.getBytes(StandardCharsets.UTF_8));
+//            // converting byte array to Hexadecimal String
+//            StringBuilder sb = new StringBuilder(2 * hash.length);
+//            for (byte b : hash) {
+//                sb.append(String.format("%02x", b & 0xff));
+//            }
+//            digest = sb.toString();
+//        } catch (NoSuchAlgorithmException ex) {
+//            Utils.getLogger(Utils.class.getName());
+//            digest = "";
+//        }
+//        return digest;
+//    }
 
 }
