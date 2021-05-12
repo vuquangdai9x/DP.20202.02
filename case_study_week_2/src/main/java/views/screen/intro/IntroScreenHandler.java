@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
+import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 
 public class IntroScreenHandler extends BaseScreenHandler {
@@ -44,7 +45,7 @@ public class IntroScreenHandler extends BaseScreenHandler {
     }
 
     protected void setupFunctionality() throws Exception {
-        File file = new File("src/main/resources/assets/images/Logo.png");
+        File file = new File(ViewsConfig.LOGO_IMAGE_PATH);
         Image image = new Image(file.toURI().toString());
         logo.setImage(image);
     }

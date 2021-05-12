@@ -19,6 +19,12 @@ public class App extends Application {
 
 	@FXML
 	ImageView logo;
+	
+	private static final float FADE_IN_DURATION = 2;
+	private static final float FADE_OUT_DURATION = 1;
+	
+	private static final float UNVISIBLE_VALUE = 0;
+	private static final float VISIBLE_VALUE = 1;
 
 	/**
 	 * <p>Vu Quang Dai</p>
@@ -34,15 +40,15 @@ public class App extends Application {
 			introScreen.show();
 
 			// Load splash screen with fade in effect
-			FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), introScreen.getContent());
-			fadeIn.setFromValue(0);
-			fadeIn.setToValue(1);
+			FadeTransition fadeIn = new FadeTransition(Duration.seconds(FADE_IN_DURATION), introScreen.getContent());
+			fadeIn.setFromValue(UNVISIBLE_VALUE);
+			fadeIn.setToValue(VISIBLE_VALUE);
 			fadeIn.setCycleCount(1);
 
 			// Finish splash with fade out effect
-			FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), introScreen.getContent());
-			fadeOut.setFromValue(1);
-			fadeOut.setToValue(0);
+			FadeTransition fadeOut = new FadeTransition(Duration.seconds(FADE_OUT_DURATION), introScreen.getContent());
+			fadeOut.setFromValue(VISIBLE_VALUE);
+			fadeOut.setToValue(UNVISIBLE_VALUE);
 			fadeOut.setCycleCount(1);
 
 			// After fade in, start fade out
@@ -53,22 +59,25 @@ public class App extends Application {
 
 			// After fade out, load actual content
 			fadeOut.setOnFinished((e) -> {
-				try {
-					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, ViewsConfig.HOME_PATH);
-					homeHandler.setScreenTitle("Home Screen");
-					homeHandler.setImage();
-					homeHandler.show();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				loadContent(primaryStage);
 			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	private void loadContent(Stage primaryStage) {
+		try {
+			HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, ViewsConfig.HOME_PATH);
+			homeHandler.setScreenTitle("Home Screen");
+			homeHandler.setImage();
+			homeHandler.show();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
 }

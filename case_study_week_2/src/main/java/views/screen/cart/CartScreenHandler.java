@@ -68,9 +68,9 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 	protected void setupFunctionality() throws Exception {
 		// fix relative image path caused by fxml
-		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");
-		Image im = new Image(file.toURI().toString());
-		aimsImage.setImage(im);
+		File logoFile = new File(ViewsConfig.LOGO_IMAGE_PATH);
+		Image logoImage = new Image(logoFile.toURI().toString());
+		aimsImage.setImage(logoImage);
 
 		// on mouse clicked, we back to home
 		aimsImage.setOnMouseClicked(e -> {
