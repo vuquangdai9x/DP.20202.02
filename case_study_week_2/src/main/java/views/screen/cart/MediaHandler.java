@@ -59,7 +59,8 @@ public class MediaHandler extends FXMLScreenHandler {
 	private CartItem cartItem;
 	private Spinner<Integer> spinner;
 	private CartScreenHandler cartScreen;
-
+	
+	//Divegent change. Khi thay doi cac thuoc tinh cua Media phai thay doi cac Screen hien thi san pham
 	public MediaHandler(String screenPath, CartScreenHandler cartScreen) throws IOException {
 		super(screenPath);
 		this.cartScreen = cartScreen;

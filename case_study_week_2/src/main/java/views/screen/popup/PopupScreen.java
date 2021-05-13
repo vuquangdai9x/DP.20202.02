@@ -22,13 +22,13 @@ public class PopupScreen extends BaseScreenHandler {
     Label message;
 
     public PopupScreen(Stage stage) throws IOException{
-        super(stage, ViewsConfig.POPUP_PATH);
+        super(stage, ViewsConfig.POPUP_PATH, null);
     }
 
     /**
      * Le Minh Duc
      * Control coupling 
-     * Su dung tham so truyen vao undecorated làm tham số điều khiển
+     * Su dung tham so truyen vao undecorated lÃ m tham sá»‘ Ä‘iá»�u khiá»ƒn
      */
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());

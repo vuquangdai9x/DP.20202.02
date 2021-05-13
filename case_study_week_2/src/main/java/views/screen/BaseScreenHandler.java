@@ -26,9 +26,25 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 
-	protected BaseScreenHandler(Stage stage, String screenPath) throws IOException {
+	//DucND. Duplication of code. Dua phan try catch len lop cha 
+	protected BaseScreenHandler(Stage stage, String screenPath, Object obj) throws IOException {
 		super(screenPath);
 		this.stage = stage;
+		try {
+			if (obj == null) {
+				setupData(null);
+			} else {
+				setupData(obj);
+			}
+
+			setupFunctionality();
+		} catch (IOException ex) {
+			LOGGER.info(ex.getMessage());
+			PopupScreen.error("Error when loading resources.");
+		} catch (Exception ex) {
+			LOGGER.info(ex.getMessage());
+			PopupScreen.error(ex.getMessage());
+		}
 	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {
@@ -65,6 +81,12 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 
 	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
 		this.homeScreenHandler = HomeScreenHandler;
+	}
+	
+	protected void setupData(Object obj) throws Exception {
+	}
+
+	protected void setupFunctionality() throws Exception {
 	}
 
 }
