@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\20202\Design Pattern\DP.20202.02\case_study_week_2"/>
 			<item value="E:\20202\Mẫu thiết kế PM\DP.20202.02\case_study_week_2"/>
 		</list>
 	</section>
