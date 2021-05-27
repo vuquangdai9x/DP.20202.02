@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 import common.exception.MediaNotAvailableException;
 import common.exception.PlaceOrderException;
+import common.interfaces.Observable;
+import common.interfaces.Observer;
 import controller.PlaceOrderController;
 import controller.ViewCartController;
 import entity.cart.CartItem;
@@ -26,7 +28,7 @@ import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
-public class CartScreenHandler extends BaseScreenHandler {
+public class CartScreenHandler extends BaseScreenHandler implements Observer {
 	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
 
 	@FXML
@@ -54,16 +56,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 	private Button btnPlaceOrder;
 
 	public CartScreenHandler(Stage stage, String screenPath) throws IOException {
-		super(stage, screenPath);
-		try {
-			setupFunctionality();
-		} catch (IOException ex) {
-			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");
-		} catch (Exception ex) {
-			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());
-		}
+		super(stage, screenPath, null);
 	}
 
 	protected void setupFunctionality() throws Exception {
@@ -167,6 +160,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 				CartItem cartItem = (CartItem) cm;
 				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
 				mediaCartScreen.setCartItem(cartItem);
+				mediaCartScreen.attach(this);
 
 				// add spinner
 				vboxCart.getChildren().add(mediaCartScreen.getContent());
@@ -174,6 +168,17 @@ public class CartScreenHandler extends BaseScreenHandler {
 			// calculate subtotal and amount
 			updateCartAmount();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void update(Observable observable) {
+		try {
+			updateCart();
+			updateCartAmount();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

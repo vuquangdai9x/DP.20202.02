@@ -3,11 +3,15 @@ package views.screen.cart;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
 import common.exception.MediaUpdateException;
 import common.exception.ViewCartException;
+import common.interfaces.Observable;
+import common.interfaces.Observer;
 import controller.SessionInformation;
 import entity.cart.Cart;
 import entity.cart.CartItem;
@@ -25,7 +29,7 @@ import utils.Utils;
 import views.screen.FXMLScreenHandler;
 import views.screen.ViewsConfig;
 
-public class MediaHandler extends FXMLScreenHandler {
+public class MediaHandler extends FXMLScreenHandler implements Observable {
 
 	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
 
@@ -59,11 +63,13 @@ public class MediaHandler extends FXMLScreenHandler {
 	private CartItem cartItem;
 	private Spinner<Integer> spinner;
 	private CartScreenHandler cartScreen;
-
+	
+	//Divegent change. Khi thay doi cac thuoc tinh cua Media phai thay doi cac Screen hien thi san pham
 	public MediaHandler(String screenPath, CartScreenHandler cartScreen) throws IOException {
 		super(screenPath);
 		this.cartScreen = cartScreen;
 		hboxMedia.setAlignment(Pos.CENTER);
+		this.observerList = new ArrayList<>();
 	}
 	
 	public void setCartItem(CartItem cartItem) {
@@ -84,14 +90,17 @@ public class MediaHandler extends FXMLScreenHandler {
 		// add delete button
 		btnDelete.setFont(ViewsConfig.REGULAR_FONT);
 		btnDelete.setOnMouseClicked(e -> {
-			try {
-				SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
-				cartScreen.updateCart(); // re-display user cart
-				LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
-			} catch (SQLException exp) {
-				exp.printStackTrace();
-				throw new ViewCartException();
-			}
+//			try {
+//				SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
+//				cartScreen.updateCart(); // re-display user cart
+//				LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
+//			} catch (SQLException exp) {
+//				exp.printStackTrace();
+//				throw new ViewCartException();
+//			}
+			SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
+			notifyObservers();
+			LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 		});
 
 		initializeSpinner();
@@ -120,7 +129,8 @@ public class MediaHandler extends FXMLScreenHandler {
 				price.setText(ViewsConfig.getCurrencyFormat(numOfProd* cartItem.getPrice()));
 
 				// update subtotal and amount of Cart
-				cartScreen.updateCartAmount();
+//				cartScreen.updateCartAmount();
+				notifyObservers();
 
 			} catch (SQLException e1) {
 				throw new MediaUpdateException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
@@ -130,4 +140,20 @@ public class MediaHandler extends FXMLScreenHandler {
 		spinnerFX.setAlignment(Pos.CENTER);
 		spinnerFX.getChildren().add(this.spinner);
 	}
+
+	private List<Observer> observerList;
+	@Override
+    public void attach(Observer observer) {
+        observerList.add(observer);
+    }
+
+    @Override
+    public void remove(Observer observer) {
+        observerList.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observerList.forEach(observer -> observer.update(this));
+    }
 }
