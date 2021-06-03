@@ -8,10 +8,14 @@ import common.exception.InvalidCardException;
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
 import entity.cart.Cart;
+import entity.payment.Card;
 import entity.payment.CreditCard;
+import entity.payment.DomesticCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
+import subsystem.interbank.InterbankSubsystemCreditCardController;
+import subsystem.interbank.InterbankSubsystemDomesticCardController;
 import utils.Validate;
 
 /**
@@ -38,7 +42,7 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
-	private CreditCard creditCard;
+	private Card card;
 
 	/**
 	 * Represent the Interbank subsystem
@@ -112,14 +116,37 @@ public class PaymentController extends BaseController {
 		Validate validate = new Validate();
 		
 		try {
-			this.creditCard = new CreditCard(
+			this.card = new CreditCard(
 					cardNumber,
 					cardHolderName,
 					validate.getExpirationDate(expirationDate),
 					Integer.parseInt(securityCode));
 
-			this.interbank = new InterbankSubsystem();
-			PaymentTransaction transaction = interbank.payOrder(creditCard, amount, contents);
+			if (this.interbank == null) this.interbank = new InterbankSubsystem();
+			this.interbank.setPaymentController(new InterbankSubsystemCreditCardController());
+			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+
+			result.put("RESULT", "PAYMENT SUCCESSFUL!");
+			result.put("MESSAGE", "You have successfully paid the order!");
+		} catch (PaymentException | UnrecognizedException ex) {
+			result.put("MESSAGE", ex.getMessage());
+		}
+		return result;
+	}
+	
+	public Map<String, String> payOrder(int amount, String contents, String cardType, String issuringbank, 
+			String cardNumber, String cardholderName, String validFromDate) {
+		Map<String, String> result = new Hashtable<String, String>();
+		result.put("RESULT", "PAYMENT FAILED!");
+		
+		Validate validate = new Validate();
+		
+		try {
+			this.card = new DomesticCard(cardType, issuringbank, cardNumber, cardholderName, validFromDate);
+
+			if (this.interbank == null) this.interbank = new InterbankSubsystem();
+			this.interbank.setPaymentController(new InterbankSubsystemDomesticCardController());
+			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have successfully paid the order!");
