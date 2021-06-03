@@ -1,21 +1,19 @@
 package subsystem.interbank;
 
-import entity.payment.CreditCard;
+import entity.payment.Card;
 import entity.payment.PaymentTransaction;
 
-public class InterbankSubsystemController {
-
-	private static InterbankPayloadConverter interbankPayloadConverter = new InterbankPayloadConverter();
+public class InterbankSubsystemCreditCardController implements InterbankSubsystemControllerInterface {
+	private static InterbankCreditPayloadConverter interbankPayloadConverter = new InterbankCreditPayloadConverter();
 	private static InterbankBoundary interbankBoundary = new InterbankBoundary();
-
-	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
+	
+	public PaymentTransaction refund(Card card, int amount, String contents) {
 		return null;
 	}
 
-	public PaymentTransaction payOrder(CreditCard card, int amount, String contents) {
+	public PaymentTransaction payOrder(Card card, int amount, String contents) {
 		String requestPayload = interbankPayloadConverter.convertToRequestPayload(card, amount, contents);
 		String responseText = interbankBoundary.query(InterbankConfigs.PROCESS_TRANSACTION_URL, requestPayload);
 		return interbankPayloadConverter.extractPaymentTransaction(responseText);
 	}
-
 }
