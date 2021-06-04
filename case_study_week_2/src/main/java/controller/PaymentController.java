@@ -10,12 +10,12 @@ import common.exception.UnrecognizedException;
 import entity.cart.Cart;
 import entity.payment.Card;
 import entity.payment.CreditCard;
-import entity.payment.DomesticCard;
+//import entity.payment.DomesticCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
 import subsystem.interbank.InterbankSubsystemCreditCardController;
-import subsystem.interbank.InterbankSubsystemDomesticCardController;
+//import subsystem.interbank.InterbankSubsystemDomesticCardController;
 import utils.Validate;
 
 /**
@@ -134,29 +134,29 @@ public class PaymentController extends BaseController {
 		return result;
 	}
 	
-	public Map<String, String> payOrder(int amount, String contents, String cardType, String issuringbank, 
-			String cardNumber, String cardholderName, String validFromDate) {
-		Map<String, String> result = new Hashtable<String, String>();
-		result.put("RESULT", "PAYMENT FAILED!");
-		
-		Validate validate = new Validate();
-		
-		try {
-			this.card = new DomesticCard(cardType, issuringbank, cardNumber, cardholderName, validFromDate);
-
-			if (this.interbank == null) this.interbank = new InterbankSubsystem();
-			this.interbank.setPaymentController(new InterbankSubsystemDomesticCardController());
-			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
-
-			result.put("RESULT", "PAYMENT SUCCESSFUL!");
-			result.put("MESSAGE", "You have successfully paid the order!");
-		} catch (PaymentException | UnrecognizedException ex) {
-			result.put("MESSAGE", ex.getMessage());
-		}
-		return result;
-	}
-
-	public void emptyCart(){
-        SessionInformation.getInstance().cartInstance.emptyCart();
-    }
+//	public Map<String, String> payOrder(int amount, String contents, String cardType, String issuringbank, 
+//			String cardNumber, String cardholderName, String validFromDate) {
+//		Map<String, String> result = new Hashtable<String, String>();
+//		result.put("RESULT", "PAYMENT FAILED!");
+//		
+//		Validate validate = new Validate();
+//		
+//		try {
+//			this.card = new DomesticCard(cardType, issuringbank, cardNumber, cardholderName, validFromDate);
+//
+//			if (this.interbank == null) this.interbank = new InterbankSubsystem();
+//			this.interbank.setPaymentController(new InterbankSubsystemDomesticCardController());
+//			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+//
+//			result.put("RESULT", "PAYMENT SUCCESSFUL!");
+//			result.put("MESSAGE", "You have successfully paid the order!");
+//		} catch (PaymentException | UnrecognizedException ex) {
+//			result.put("MESSAGE", ex.getMessage());
+//		}
+//		return result;
+//	}
+//
+//	public void emptyCart(){
+//        SessionInformation.getInstance().cartInstance.emptyCart();
+//    }
 }
