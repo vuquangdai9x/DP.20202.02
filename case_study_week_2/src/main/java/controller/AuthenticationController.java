@@ -19,6 +19,8 @@ import java.util.Objects;
  * Class thuc hien nhieu hon mot nhiem vu
  */
 
+// Dinh DUc. Vi pham LSP. Khong lien quan den 2 phuong thuc cua class BaseController
+
 /**
  * @author
  */
