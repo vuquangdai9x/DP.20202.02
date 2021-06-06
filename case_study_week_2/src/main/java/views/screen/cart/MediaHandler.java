@@ -15,6 +15,7 @@ import common.interfaces.Observer;
 import controller.SessionInformation;
 import entity.cart.Cart;
 import entity.cart.CartItem;
+import entity.cart.CartItemInterface;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -60,7 +61,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 	@FXML
 	protected Button btnDelete;
 
-	private CartItem cartItem;
+	private CartItemInterface cartItem;
 	private Spinner<Integer> spinner;
 	private CartScreenHandler cartScreen;
 	
@@ -72,7 +73,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 		this.observerList = new ArrayList<>();
 	}
 	
-	public void setCartItem(CartItem cartItem) {
+	public void setCartItem(CartItemInterface cartItem) {
 		this.cartItem = cartItem;
 		setMediaInfo();
 	}
@@ -98,7 +99,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 //				exp.printStackTrace();
 //				throw new ViewCartException();
 //			}
-			SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
+			SessionInformation.getInstance().cartInstance.removeCartMedia((CartItem)cartItem); // update user cart
 			notifyObservers();
 			LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 		});

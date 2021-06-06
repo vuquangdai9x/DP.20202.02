@@ -2,7 +2,7 @@ package entity.order;
 
 import entity.media.Media;
 
-public class OrderItem {
+public class OrderItem implements OrderItemInterface {
     
     private Media media;
     private int price;

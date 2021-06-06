@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import entity.order.OrderItem;
+import entity.order.OrderItemInterface;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -38,13 +39,13 @@ public class MediaInvoiceScreenHandler extends FXMLScreenHandler{
     @FXML
     private Label price;
 
-    private OrderItem orderItem;
+    private OrderItemInterface orderItem;
 
     public MediaInvoiceScreenHandler(String screenPath) throws IOException{
         super(screenPath);
     }
 
-    public void setOrderItem(OrderItem orderItem) throws SQLException{
+    public void setOrderItem(OrderItemInterface orderItem) throws SQLException{
         this.orderItem = orderItem;
         setMediaInfo();
     }

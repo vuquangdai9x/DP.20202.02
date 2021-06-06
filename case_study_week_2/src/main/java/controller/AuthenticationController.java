@@ -47,11 +47,11 @@ public class AuthenticationController extends BaseController {
     			SessionInformation.getInstance().expiredTime.isBefore(LocalDateTime.now());
     }
     
-/**
- * Le Minh Duc
- * SOLID: Vi pham nguyen ly  Dependency Inversion Principle
- * Vi class muc cao la AuthenticationController phu thuoc truc tiep vao class muc thap la UserDAO
- */
+	/**
+	 * Le Minh Duc
+	 * SOLID: Vi pham nguyen ly  Dependency Inversion Principle
+	 * Vi class muc cao la AuthenticationController phu thuoc truc tiep vao class muc thap la UserDAO
+	 */
     public void login(String email, String password) throws Exception {
         try {
         	Hash hash = new Hash();
@@ -69,35 +69,5 @@ public class AuthenticationController extends BaseController {
         SessionInformation.getInstance().mainUser = null;
         SessionInformation.getInstance().expiredTime = null;
     }
-
-    /**
-     * Return a {@link String String} that represents the cipher text
-     * encrypted by md5 algorithm.
-     *
-     * @param message - plain text as {@link String String}.
-     * @return cipher text as {@link String String}.
-     */
-    /**
-	 * <p>Vu Quang Dai</p>
-	 * <p>Coicidental Cohesion</p>
-	 * <p>md5 encryption is not functional relate to Authentication. This method should be place in an utility class</p>
-	 */
-//    private String md5(String message) {
-//        String digest = null;
-//        try {
-//            MessageDigest md = MessageDigest.getInstance("MD5");
-//            byte[] hash = md.digest(message.getBytes(StandardCharsets.UTF_8));
-//            // converting byte array to Hexadecimal String
-//            StringBuilder sb = new StringBuilder(2 * hash.length);
-//            for (byte b : hash) {
-//                sb.append(String.format("%02x", b & 0xff));
-//            }
-//            digest = sb.toString();
-//        } catch (NoSuchAlgorithmException ex) {
-//            Utils.getLogger(Utils.class.getName());
-//            digest = "";
-//        }
-//        return digest;
-//    }
 
 }
