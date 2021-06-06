@@ -10,13 +10,13 @@ import entity.db.AIMSDB;
 
 public class Book extends Media {
 
-    String author;
-    String coverType;
-    String publisher;
-    Date publishDate;
-    int numOfPages;
-    String language;
-    String bookCategory;
+    private String author;
+    private String coverType;
+    private String publisher;
+    private Date publishDate;
+    private int numOfPages;
+    private String language;
+    private String bookCategory;
 
     public Book() throws SQLException{
 
