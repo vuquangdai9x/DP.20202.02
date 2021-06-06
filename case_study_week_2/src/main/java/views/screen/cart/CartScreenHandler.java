@@ -84,14 +84,14 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 		});
 	}
 
-	public ViewCartController getBController(){
-		return (ViewCartController) super.getBController();
+	public ViewCartController getBaseController(){
+		return (ViewCartController) super.getBaseController();
 	}
 
 	public void requestToViewCart(BaseScreenHandler prevScreen) throws SQLException {
 		setPreviousScreen(prevScreen);
 		setScreenTitle("Cart Screen");
-		getBController().checkAvailabilityOfProduct();
+		getBaseController().checkAvailabilityOfProduct();
 		displayCartWithMediaAvailability();
 		show();
 	}
@@ -129,13 +129,13 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 	}
 
 	public void updateCart() throws SQLException{
-		getBController().checkAvailabilityOfProduct();
+		getBaseController().checkAvailabilityOfProduct();
 		displayCartWithMediaAvailability();
 	}
 
 	void updateCartAmount(){
 		// calculate subtotal and amount
-		int subtotal = getBController().getCartSubtotal();
+		int subtotal = getBaseController().getCartSubtotal();
 		int vat = (int)((ViewsConfig.PERCENT_VAT/100)*subtotal);
 		int amount = subtotal + vat;
 		LOGGER.info("amount" + amount);
@@ -151,14 +151,14 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 		vboxCart.getChildren().clear();
 
 		// get list media of cart after check availability
-		List lstMedia = getBController().getListCartMedia();
+		List lstMedia = getBaseController().getListCartMedia();
 
 		try {
 			for (Object cm : lstMedia) {
 
 				// display the attribute of vboxCart media
 				CartItem cartItem = (CartItem) cm;
-				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
+				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH);
 				mediaCartScreen.setCartItem(cartItem);
 				mediaCartScreen.attach(this);
 
@@ -174,9 +174,9 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 
 	@Override
 	public void update(Observable observable) {
+		updateCartAmount();
 		try {
 			updateCart();
-			updateCartAmount();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

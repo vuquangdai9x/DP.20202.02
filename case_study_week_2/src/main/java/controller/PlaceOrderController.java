@@ -6,7 +6,7 @@ import entity.cart.CartItem;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderItem;
-import entity.shipping.AltDeliveryInfoAdapter;
+import entity.shipping.AltDeliveryInfo;
 import entity.shipping.DeliveryInfo;
 import entity.shipping.ShippingConfigs;
 
@@ -98,17 +98,17 @@ public class PlaceOrderController extends BaseController {
         
         // use altDeliveryAdapter
         
-        AltDeliveryInfoAdapter deliveryInfo = new AltDeliveryInfoAdapter(
+        DeliveryInfo deliveryInfo = new DeliveryInfo(
                 String.valueOf(info.get("name")),
                 String.valueOf(info.get("phone")),
                 String.valueOf(info.get("province")),
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
-                new AlternativeDistanceCalculator());
-        deliveryInfo.setDepth(1);
-        deliveryInfo.setHeight(2);
-        deliveryInfo.setWeight(3);
-        deliveryInfo.setWeight(4);
+                new DistanceCalculator());
+//        deliveryInfo.setDepth(1);
+//        deliveryInfo.setHeight(2);
+//        deliveryInfo.setWeight(3);
+//        deliveryInfo.setWeight(4);
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }

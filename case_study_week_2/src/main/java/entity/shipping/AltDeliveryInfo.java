@@ -4,14 +4,14 @@ import entity.order.Order;
 
 import org.example.AlternativeDistanceCalculator;
 
-public class AltDeliveryInfoAdapter extends DeliveryInfo {
+public class AltDeliveryInfo extends DeliveryInfo {
 	protected float width;
     protected float height;
     protected float depth;
     protected float weight;
 	protected AlternativeDistanceCalculator altDistanceCalculator;
 	
-	public AltDeliveryInfoAdapter(String name, String phone, String province, String address,
+	public AltDeliveryInfo(String name, String phone, String province, String address,
 			String shippingInstructions, AlternativeDistanceCalculator altDistanceCalculator) {
 		super(name, phone, province, address, shippingInstructions, null);
 		this.altDistanceCalculator = altDistanceCalculator;

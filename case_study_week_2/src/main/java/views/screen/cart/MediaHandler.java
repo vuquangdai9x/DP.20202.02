@@ -62,12 +62,10 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 
 	private CartItem cartItem;
 	private Spinner<Integer> spinner;
-	private CartScreenHandler cartScreen;
 	
 	//Divegent change. Khi thay doi cac thuoc tinh cua Media phai thay doi cac Screen hien thi san pham
-	public MediaHandler(String screenPath, CartScreenHandler cartScreen) throws IOException {
+	public MediaHandler(String screenPath) throws IOException {
 		super(screenPath);
-		this.cartScreen = cartScreen;
 		hboxMedia.setAlignment(Pos.CENTER);
 		this.observerList = new ArrayList<>();
 	}
@@ -76,7 +74,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 		this.cartItem = cartItem;
 		setMediaInfo();
 	}
-
+	
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
 		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));
@@ -90,20 +88,16 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 		// add delete button
 		btnDelete.setFont(ViewsConfig.REGULAR_FONT);
 		btnDelete.setOnMouseClicked(e -> {
-//			try {
-//				SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
-//				cartScreen.updateCart(); // re-display user cart
-//				LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
-//			} catch (SQLException exp) {
-//				exp.printStackTrace();
-//				throw new ViewCartException();
-//			}
-			SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
-			notifyObservers();
-			LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
+			RemoveItem();
 		});
 
 		initializeSpinner();
+	}
+	
+	private void RemoveItem() {
+		SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
+		notifyObservers();
+		LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 	}
 
 	private void initializeSpinner(){
@@ -111,34 +105,32 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 			new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, cartItem.getQuantity());
 		spinner = new Spinner<Integer>(valueFactory);
 		spinner.setOnMouseClicked( e -> {
-			try {
-				int numOfProd = this.spinner.getValue();
-				int remainQuantity = cartItem.getMedia().getQuantity();
-				LOGGER.info("NumOfProd: " + numOfProd + " -- remainOfProd: " + remainQuantity);
-				if (numOfProd > remainQuantity){
-					LOGGER.info("product " + cartItem.getMedia().getTitle() + " only remains " + remainQuantity + " (required " + numOfProd + ")");
-					labelOutOfStock.setText("Sorry, Only " + remainQuantity + " remain in stock");
-					spinner.getValueFactory().setValue(remainQuantity);
-					numOfProd = remainQuantity;
-				}
-
-				// update quantity of mediaCart in useCart
-				cartItem.setQuantity(numOfProd);
-
-				// update the total of mediaCart
-				price.setText(ViewsConfig.getCurrencyFormat(numOfProd* cartItem.getPrice()));
-
-				// update subtotal and amount of Cart
-//				cartScreen.updateCartAmount();
-				notifyObservers();
-
-			} catch (SQLException e1) {
-				throw new MediaUpdateException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
-			}
-			
+			UpdateCartItemQuantity();
 		});
 		spinnerFX.setAlignment(Pos.CENTER);
 		spinnerFX.getChildren().add(this.spinner);
+	}
+	
+	private void UpdateCartItemQuantity() {
+		try {
+			int numOfProd = this.spinner.getValue();
+			int remainQuantity = cartItem.getMedia().getQuantity();
+			LOGGER.info("NumOfProd: " + numOfProd + " -- remainOfProd: " + remainQuantity);
+			if (numOfProd > remainQuantity){
+				LOGGER.info("product " + cartItem.getMedia().getTitle() + " only remains " + remainQuantity + " (required " + numOfProd + ")");
+				labelOutOfStock.setText("Sorry, Only " + remainQuantity + " remain in stock");
+				spinner.getValueFactory().setValue(remainQuantity);
+				numOfProd = remainQuantity;
+			}
+			// update quantity of mediaCart in useCart
+			cartItem.setQuantity(numOfProd);
+			// update the total of mediaCart
+			price.setText(ViewsConfig.getCurrencyFormat(numOfProd* cartItem.getPrice()));
+			// update subtotal and amount of Cart
+			notifyObservers();
+		} catch (SQLException e1) {
+			throw new MediaUpdateException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
+		}
 	}
 
 	private List<Observer> observerList;

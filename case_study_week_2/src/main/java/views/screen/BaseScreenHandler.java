@@ -24,7 +24,7 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 	protected final Stage stage;
 	protected HomeScreenHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
-	private BaseController bController;
+	private BaseController baseController;
 
 	//DucND. Duplication of code. Dua phan try catch len lop cha 
 	protected BaseScreenHandler(Stage stage, String screenPath, Object obj) throws IOException {
@@ -68,11 +68,11 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 	}
 
 	public void setBController(BaseController bController){
-		this.bController = bController;
+		this.baseController = bController;
 	}
 
-	public BaseController getBController(){
-		return this.bController;
+	public BaseController getBaseController(){
+		return this.baseController;
 	}
 
 	public void forward(Hashtable messages) {

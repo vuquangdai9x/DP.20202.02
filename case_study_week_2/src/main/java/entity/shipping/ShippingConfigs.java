@@ -6,7 +6,7 @@ package entity.shipping;
 public class ShippingConfigs {
 
     public static String[] PROVINCES = {
-            "Bắc Giang", 	"Bắc Kạn", 			"Cao Bằng", 	"Hà Giang", 	"Lạng Sơn", 	"Phú Thọ",
+    		"Bắc Giang", 	"Bắc Kạn", 			"Cao Bằng", 	"Hà Giang", 	"Lạng Sơn", 	"Phú Thọ",
             "Quảng Ninh", 	"Thái Nguyên", 		"Tuyên Quang", 	"Yên Bái", 		"Điện Biên", 	"Hòa Bình",
             "Lai Châu", 	"Sơn La", 			"Bắc Ninh", 	"Hà Nam", 		"Hải Dương", 	"Hưng Yên",
             "Nam Định", 	"Ninh Bình", 		"Thái Bình", 	"Vĩnh Phúc", 	"Hà Nội", 		"Hải Phòng",
