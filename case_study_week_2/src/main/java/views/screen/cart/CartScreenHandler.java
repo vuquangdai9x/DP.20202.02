@@ -174,12 +174,15 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 
 	@Override
 	public void update(Observable observable) {
-		updateCartAmount();
-		try {
-			updateCart();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (observable instanceof MediaHandler) {
+			update((MediaHandler)observable);
 		}
+	}
+	
+	private void update(MediaHandler mediaHandler) {
+		if (mediaHandler.getCartItem() == null) {
+			vboxCart.getChildren().remove(mediaHandler.getContent());
+		}
+		updateCartAmount();
 	}
 }

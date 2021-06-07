@@ -75,6 +75,10 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 		setMediaInfo();
 	}
 	
+	public CartItem getCartItem() {
+		return cartItem;
+	}
+
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
 		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));
@@ -96,6 +100,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 	
 	private void RemoveItem() {
 		SessionInformation.getInstance().cartInstance.removeCartMedia(cartItem); // update user cart
+		cartItem = null;
 		notifyObservers();
 		LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 	}
