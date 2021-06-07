@@ -53,6 +53,7 @@ public class Order {
     }
     // temporal cohesion: dong thoi tinh fees de lay thong tin
 
+    // Dinh Duc. DIP. Phu thuoc truc tiep vao ham calculateShippingFee
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);

@@ -35,6 +35,7 @@ import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
 import views.screen.popup.PopupScreen;
 
+// Dinh Duc. LSP & ISP. Khong su dung den 2 phuong thuc PreviousScreen cua class BaseScreenHandler
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
