@@ -48,3 +48,21 @@
 2021-03-19 19:29:07,396 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
 2021-03-19 19:29:07,424 [Worker-13: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2021-03-19 19:29:07,432 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\M?u thi?t k? PM\DP.20202.02\case_study_week_2\src\test\resources
+2021-06-07 12:33:06,098 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-06-07 12:33:47,638 [Worker-2: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: groupId:dp-case-study:1.0-SNAPSHOT @ E:\20202\Design Pattern\DP.20202.02\case_study_week_2\pom.xml.
+2021-06-07 12:33:50,786 [Worker-9: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:33:50,848 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-06-07 12:33:51,203 [Worker-9: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:33:51,205 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\Design Pattern\DP.20202.02\case_study_week_2\src\test\resources
+2021-06-07 12:35:01,898 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:35:01,916 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-06-07 12:35:01,929 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:35:01,932 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\Design Pattern\DP.20202.02\case_study_week_2\src\test\resources
+2021-06-07 12:36:09,601 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:36:09,607 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-06-07 12:36:09,621 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:36:09,622 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\Design Pattern\DP.20202.02\case_study_week_2\src\test\resources
+2021-06-07 12:39:16,900 [Worker-10: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:39:16,912 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 58 resources
+2021-06-07 12:39:16,921 [Worker-10: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-07 12:39:16,923 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\20202\Design Pattern\DP.20202.02\case_study_week_2\src\test\resources

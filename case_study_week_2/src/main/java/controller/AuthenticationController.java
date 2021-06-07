@@ -14,10 +14,12 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 
+//Dinh DUc. Vi pham LSP. Khong lien quan den 2 phuong thuc cua class BaseController
 
 /**
  * @author
  */
+
 public class AuthenticationController extends BaseController {
 
     public boolean isAnonymousSession() {
