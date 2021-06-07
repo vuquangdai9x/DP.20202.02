@@ -7,13 +7,13 @@ import java.util.List;
 
 public class DVD extends Media {
 
-    String discType;
-    String director;
-    int runtime;
-    String studio;
-    String subtitles;
-    Date releasedDate;
-    String filmType;
+	private String discType;
+	private String director;
+	private int runtime;
+	private String studio;
+	private String subtitles;
+	private Date releasedDate;
+	private String filmType;
 
     public DVD() throws SQLException{
 

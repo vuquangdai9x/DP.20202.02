@@ -7,10 +7,10 @@ import java.util.List;
 
 public class CD extends Media {
 
-    String artist;
-    String recordLabel;
-    String musicType;
-    Date releasedDate;
+	private String artist;
+	private String recordLabel;
+	private String musicType;
+	private Date releasedDate;
 
     public CD() throws SQLException{
 

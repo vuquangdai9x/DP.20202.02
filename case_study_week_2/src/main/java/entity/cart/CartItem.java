@@ -2,7 +2,7 @@ package entity.cart;
 
 import entity.media.Media;
 
-public class CartItem {
+public class CartItem implements CartItemInterface {
     
     private Media media;
     private int quantity;

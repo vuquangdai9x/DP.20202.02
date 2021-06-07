@@ -1,5 +1,5 @@
 package entity.payment;
 
-public class Card {
+public abstract class Card {
 
 }
