@@ -12,6 +12,9 @@ import java.util.List;
 /**
  * @author
  */
+/*
+ * Nguyen Manh Duc: logical cohesion: phuong thuc getAllMedia và getMediaBy deu lay thong tin nhung khong su dung du lieu cua nhau
+ */
 public class MediaDAO {
 
     public List getAllMedia() throws SQLException {
@@ -31,7 +34,9 @@ public class MediaDAO {
         }
         return medium;
     }
-
+/*
+ * Nguyen Manh Duc: functional cohesion: phuong thuc nay thuc hien 2 viec truy van du lieu va xu li du lieu tra ve
+ */
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM Media ;";
         Statement stm = AIMSDB.getConnection().createStatement();
