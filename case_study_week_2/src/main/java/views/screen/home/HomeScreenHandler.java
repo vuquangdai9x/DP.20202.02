@@ -73,6 +73,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath, null);
+        setImage();
     }
 
     public Label getNumMediaCartLabel(){
@@ -130,7 +131,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         addMenuItem(2, "CD", splitMenuBtnSearch);
     }
 
-    // Vu Quang Dai. Common Coupling. Reference to static member SessionInformation.getInstance().cartInstance from other module
     @Override
     public void show() {
         if (authenticationController.isAnonymousSession()) {
@@ -145,7 +145,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         super.show();
     }
 
-    public void setImage() {
+    private void setImage() {
         // fix image path caused by fxml
         File logoImageFile = new File(ViewsConfig.LOGO_IMAGE_PATH);
         Image logoImage = new Image(logoImageFile.toURI().toString());

@@ -75,6 +75,7 @@
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="108.0">
                      <children>
                         <Button fx:id="addToCartBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" style="-fx-cursor: hand;" text="Add to Cart" />
+                        <Button fx:id="viewDetailBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" style="-fx-cursor: hand;" text="Detail" />
                      </children>
                   </HBox>
                </children>

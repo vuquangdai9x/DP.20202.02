@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import utils.Utils;
 import views.screen.FXMLScreenHandler;
 import views.screen.ViewsConfig;
+import views.screen.detail.DetailScreenHandler;
 import views.screen.popup.PopupScreen;
 
 public class MediaHandler extends FXMLScreenHandler implements Observable {
@@ -44,6 +45,9 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 
     @FXML
     protected Button addToCartBtn;
+    
+    @FXML
+    protected Button viewDetailBtn;
 
     private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
     private Media media;
@@ -55,6 +59,9 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
         this.observerList = new ArrayList<>();
         addToCartBtn.setOnMouseClicked(event -> {
             notifyObservers();
+        });
+        viewDetailBtn.setOnMouseClicked(event -> {
+            // show detail screen
         });
         setMediaInfo();
     }

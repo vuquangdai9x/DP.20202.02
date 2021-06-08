@@ -166,10 +166,10 @@ public class CartScreenHandler extends BaseScreenHandler implements Observer {
 				vboxCart.getChildren().add(mediaCartScreen.getContent());
 			}
 			// calculate subtotal and amount
-			updateCartAmount();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		updateCartAmount();
 	}
 
 	@Override

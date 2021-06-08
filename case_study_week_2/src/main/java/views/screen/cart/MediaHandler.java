@@ -97,13 +97,14 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
 		});
 
 		initializeSpinner();
+		UpdateCartItemQuantity();
 	}
 	
 	private void RemoveItem() {
 		SessionInformation.getInstance().cartInstance.removeCartMedia((CartItem)cartItem); // update user cart
+		LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 		cartItem = null;
 		notifyObservers();
-		LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 	}
 
 	private void initializeSpinner(){

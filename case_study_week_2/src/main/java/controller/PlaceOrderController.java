@@ -89,15 +89,13 @@ public class PlaceOrderController extends BaseController {
      * @throws IOException
      */
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
-        LOGGER.info("Process Delivery Info");
-        LOGGER.info(info.toString());
-        
-        Validate validate = new Validate();
-        
-        validate.validateDeliveryInfo(info);
-        
-        // use altDeliveryAdapter
-        
+		LOGGER.info("Process Delivery Info");
+		LOGGER.info(info.toString());
+		
+		Validate validate = new Validate();
+		
+		validate.validateDeliveryInfo(info);
+                
         DeliveryInfo deliveryInfo = new DeliveryInfo(
                 String.valueOf(info.get("name")),
                 String.valueOf(info.get("phone")),
@@ -105,10 +103,20 @@ public class PlaceOrderController extends BaseController {
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
                 new DistanceCalculator());
+        
+        // if using new distance calculator, use the code below
+//        AltDeliveryInfo deliveryInfo = new AltDeliveryInfo(
+//                String.valueOf(info.get("name")),
+//                String.valueOf(info.get("phone")),
+//                String.valueOf(info.get("province")),
+//                String.valueOf(info.get("address")),
+//                String.valueOf(info.get("instructions")),
+//                new AlternativeDistanceCalculator());
 //        deliveryInfo.setDepth(1);
 //        deliveryInfo.setHeight(2);
 //        deliveryInfo.setWeight(3);
 //        deliveryInfo.setWeight(4);
+        
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }
